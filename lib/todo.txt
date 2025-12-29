@@ -1,0 +1,18 @@
+
+
+
+TO DO
+-----
+
+1. reducetime taken by snackbar notice in add to cart - DONE
+2. write QR code scanner logic
+3. store order history for atleast six hours
+4. write canteen staff/admin logic code.
+    to scan qr code
+    to change menu ?
+
+// Test Card details
+Card Number: 5267 3181 8797 5449   (Mastercard)
+Expiry: 12/30
+CVV: 123
+OTP: 123456
