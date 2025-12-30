@@ -10,7 +10,8 @@ TO DO
 4. write canteen staff/admin logic code.
     to scan qr code
     to change menu ?
-
+5. remove two parallel lines in the login bg image
+6. change the font using flutter dev fonts
 // Test Card details
 Card Number: 5267 3181 8797 5449   (Mastercard)
 Expiry: 12/30

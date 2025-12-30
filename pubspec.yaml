@@ -39,6 +39,7 @@ dependencies:
   firebase_core: ^2.27.0
   cloud_firestore: ^4.15.0
   qr_flutter: ^4.1.0
+  flutter_svg: ^2.2.3
 
 dev_dependencies:
   flutter_test:
@@ -78,20 +79,35 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    # - family: Schyler
+    #   fonts:
+    #     - asset: fonts/Schyler-Regular.ttf
+    #     - asset: fonts/Schyler-Italic.ttf
+    #       style: italic
+    # - family: Trajan Pro
+    #   fonts:
+    #     - asset: fonts/TrajanPro.ttf
+    #     - asset: fonts/TrajanPro_Bold.ttf
+    #       weight: 700
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
+          weight: 700
+    - family: DM_Sans
+      fonts:
+        - asset: assets/fonts/dm-sans/DMSans_24pt-ExtraBoldItalic.ttf
+          weight: 400
+        - asset: assets/fonts/dm-sans/DMSans_36pt-ExtraBoldItalic.ttf
+          weight: 700
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
   assets:
     - assets/indian-railways-logo.png
     - assets/images/
+    - assets/login-page-image.png
+    - assets/login-page-ir-logo.png
+    - assets/login-page-ir-logo.svg
+    - assets/login-logo-blue-train.png
