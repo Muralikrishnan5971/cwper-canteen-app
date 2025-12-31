@@ -1,4 +1,5 @@
 import 'package:canteen/screens/menu_page.dart';
+import 'package:canteen/screens/registration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   final String storedUsername = "cwper";
   final String storedPassword = "cwper";
+  bool _obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 image: AssetImage('assets/login-logo-blue-train.png'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                  Colors.blue.withValues(alpha: 0.25),
+                  Colors.blue.withValues(alpha: 0.40),
                   BlendMode.srcOver,
                 ),
               ),
@@ -106,15 +108,16 @@ class _LoginPageState extends State<LoginPage> {
                       controller: usernameController,
                       style: const TextStyle(fontFamily: 'Inter', fontSize: 16),
                       decoration: InputDecoration(
-                        hintText: 'Type your username',
+                        hintText: 'type your username',
                         hintStyle: TextStyle(
-                          color: Color.fromARGB(128, 0, 0, 0),
-                          fontSize: 14,
+                          color: Colors.black87,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
                         ),
 
                         prefixIcon: Icon(
                           Icons.person_outline,
-                          color: Color.fromARGB(128, 0, 0, 0),
+                          color: Colors.black54,
                         ),
 
                         enabledBorder: UnderlineInputBorder(
@@ -126,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
 
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color.fromARGB(255, 19, 128, 216),
+                            color: Color.fromARGB(255, 2, 138, 250),
                             width: 2,
                           ),
                         ),
@@ -152,18 +155,35 @@ class _LoginPageState extends State<LoginPage> {
                     // ),
                     TextField(
                       controller: passwordController,
-                      obscureText: true,
+                      obscureText: _obscurePassword,
                       style: const TextStyle(fontFamily: 'Inter', fontSize: 16),
                       decoration: InputDecoration(
-                        hintText: 'Type your password',
+                        hintText: 'type your password',
                         hintStyle: TextStyle(
-                          color: Color.fromARGB(128, 0, 0, 0),
-                          fontSize: 14,
+                          color: Colors.black87,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
                         ),
 
                         prefixIcon: Icon(
                           Icons.lock_outline,
-                          color: Color.fromARGB(128, 0, 0, 0),
+                          color: Colors.black54,
+                        ),
+
+                        // 👁️ Eye icon
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscurePassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscurePassword = !_obscurePassword;
+                            });
+                          },
                         ),
 
                         enabledBorder: UnderlineInputBorder(
@@ -175,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
 
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color.fromARGB(255, 19, 128, 216),
+                            color: Color.fromARGB(255, 2, 138, 250),
                             width: 2,
                           ),
                         ),
@@ -193,6 +213,16 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.infinity,
                       height: 50,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(
+                            0xFF1976D2,
+                          ), // Railway Navy Blue
+                          foregroundColor: Colors.white,
+                          elevation: 6,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
                         onPressed: () {
                           // print("Username: ${usernameController.text}");
                           // print("Password: ${passwordController.text}");
@@ -269,8 +299,49 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           );
                         },
-                        child: Text("Login", style: TextStyle(fontSize: 20)),
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFF0A3D62),
+                          ),
+                        ),
                       ),
+                    ),
+
+                    //const SizedBox(height: 10),
+
+                    // NEW USER REGISTRATION LINK
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Don’t have an account?",
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegistrationPage(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            "Register now",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 2, 168, 245),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
