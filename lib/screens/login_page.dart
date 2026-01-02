@@ -18,6 +18,26 @@ class _LoginPageState extends State<LoginPage> {
   final String storedUsername = "cwper";
   final String storedPassword = "cwper";
   bool _obscurePassword = true;
+  bool _imagePrecached = false;
+  late final ImageProvider _bgImage;
+
+  @override
+  void initState() {
+    super.initState();
+    _bgImage = const AssetImage('assets/login-logo-blue-train.png');
+  }
+
+  // preload image
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    // Prevent multiple calls
+    if (!_imagePrecached) {
+      precacheImage(_bgImage, context);
+      _imagePrecached = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/login-logo-blue-train.png'),
+                image: _bgImage,
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Colors.blue.withValues(alpha: 0.40),

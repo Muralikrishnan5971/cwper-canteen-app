@@ -41,6 +41,7 @@ dependencies:
   qr_flutter: ^4.1.0
   flutter_svg: ^2.2.3
   firebase_auth: ^4.16.0
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:
@@ -112,3 +113,9 @@ flutter:
     - assets/login-page-ir-logo.png
     - assets/login-page-ir-logo.svg
     - assets/login-logo-blue-train.png
+  
+flutter_native_splash:
+  color: "#E3F2FD"
+  image: assets/login-page-ir-logo.png
+  android: true
+  ios: true
